@@ -1444,8 +1444,19 @@ function go(){if(userPaused)return;var pr=au.play();
 mBtn.addEventListener('click',function(e){e.stopPropagation();if(au.paused){userPaused=false;go()}else{userPaused=true;au.pause();ui(false)}});
 evs.forEach(function(n){addEventListener(n,kick,{passive:true})});
 document.addEventListener('visibilitychange',function(){if(!document.hidden)kick();else if(!au.paused){au.pause();ui(false)}});
+/* resume this page's music from where it stopped (kept for the tab session) */
+(function(){var K='music:'+location.pathname,saved=0;try{saved=parseFloat(sessionStorage.getItem(K))||0}catch(e){}
+  function seekSaved(){if(saved>1&&au.duration&&saved<au.duration-2){try{au.currentTime=saved}catch(e){}}}
+  if(au.readyState>=1)seekSaved();else au.addEventListener('loadedmetadata',seekSaved,{once:true});
+  var last=0;function save(){try{if(au.currentTime>0)sessionStorage.setItem(K,String(au.currentTime))}catch(e){}}
+  au.addEventListener('timeupdate',function(){var n=Date.now();if(n-last>1000){last=n;save()}});
+  addEventListener('pagehide',save);
+  document.addEventListener('visibilitychange',function(){if(document.hidden)save()});
+})();
 go();
 })();
 </script>
+<script>(function(){var b=document.querySelector('.back-btn');if(!b)return;b.addEventListener('click',function(e){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(_){}
+  if(same&&history.length>1){e.preventDefault();e.stopPropagation();history.back()}})})();</script>
 </body>
 </html>
