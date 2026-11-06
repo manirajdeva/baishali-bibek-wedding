@@ -471,6 +471,10 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
   html{scroll-behavior:auto}
   .sparkle{display:none}
 }
+/* event-page buttons: readable on the dark Wedding card, tidier on phones */
+.feature a.btn-line[href$=".html"]{color:#F3DFA2;border-color:rgba(243,223,162,.85)}
+.feature a.btn-line[href$=".html"]:hover{background:#F3DFA2;color:#4A0F1C}
+@media (max-width:480px){.event a.btn-line[href$=".html"]{letter-spacing:.1em;padding:0 16px;font-size:.78rem}}
 /* tap-to-start gate (only if the browser blocks autoplay) */
 #gate{position:fixed;inset:0;z-index:300;display:grid;place-items:center;text-align:center;cursor:pointer;border:0;width:100%;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(110,26,43,.97),rgba(30,3,9,.99));color:#F8EBD8;opacity:0;animation:gIn .7s cubic-bezier(.2,.75,.2,1) forwards;transition:opacity .8s,transform .8s}
 #gate.out{opacity:0!important;transform:scale(1.06);pointer-events:none}
