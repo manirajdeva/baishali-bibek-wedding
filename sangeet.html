@@ -202,7 +202,7 @@ h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3rem,12vw,4
 </style>
 </head>
 <body>
-<a class="back-btn" href="invitation.html" aria-label="Back to the invitation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a>
+<a class="back-btn" href="invitation.html?r=1" aria-label="Back to the invitation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a>
 
 <canvas id="bokeh" aria-hidden="true"></canvas>
 <div class="beam a" aria-hidden="true"></div>
@@ -396,6 +396,7 @@ go();
 })();
 </script>
 <script>(function(){var b=document.querySelector('.back-btn');if(!b)return;b.addEventListener('click',function(e){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(_){}
+  try{if(sessionStorage.getItem('nav:from')==='invitation')same=true}catch(_){}
   if(same&&history.length>1){e.preventDefault();e.stopPropagation();history.back()}})})();</script>
 </body>
 </html>

@@ -1322,13 +1322,19 @@ function petalRain(){if(reduced)return;var box=document.createElement('div');box
     p.style.setProperty('--dx',rnd(-120,120).toFixed(0)+'px');p.style.setProperty('--rt',rnd(-540,540).toFixed(0)+'deg');p.style.setProperty('--t',rnd(3.6,6.2).toFixed(2)+'s');p.style.setProperty('--dl',rnd(0,1.6).toFixed(2)+'s');box.appendChild(p)}
   document.body.appendChild(box);setTimeout(function(){box.remove()},8500);}
 
-var NAV=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||{},RETURNING=NAV.type==='back_forward',SK='scroll:invitation';
+var NAV=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||{},SK='scroll:invitation';
+/* returning = browser Back, or arriving through the event pages' Back button (?r=1), which also works in in-app browsers that hide the referrer */
+var RETURNING=NAV.type==='back_forward'||/[?&]r=1/.test(location.search);
+if(/[?&]r=1/.test(location.search)&&history.replaceState){try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}}
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 function toTop(){var r=document.documentElement,p=r.style.scrollBehavior;r.style.scrollBehavior='auto';window.scrollTo(0,0);r.scrollTop=0;document.body.scrollTop=0;r.style.scrollBehavior=p}
-function restoreScroll(){var y=0;try{y=parseInt(sessionStorage.getItem(SK),10)||0}catch(e){}var r=document.documentElement,p=r.style.scrollBehavior;r.style.scrollBehavior='auto';window.scrollTo(0,y);r.style.scrollBehavior=p}
-var sT=0;function saveScroll(){try{sessionStorage.setItem(SK,String(Math.round(window.scrollY)))}catch(e){}}
+function readScroll(){var v=null;try{v=sessionStorage.getItem(SK)}catch(e){}if(v===null){try{v=localStorage.getItem(SK)}catch(e){}}return parseInt(v,10)||0}
+function restoreScroll(){var y=readScroll(),r=document.documentElement,p=r.style.scrollBehavior;r.style.scrollBehavior='auto';window.scrollTo(0,y);r.style.scrollBehavior=p}
+var sT=0;function saveScroll(){var y=String(Math.round(window.scrollY));try{sessionStorage.setItem(SK,y)}catch(e){}try{localStorage.setItem(SK,y)}catch(e){}}
 addEventListener('scroll',function(){var n=Date.now();if(n-sT>400){sT=n;saveScroll()}},{passive:true});
 addEventListener('pagehide',saveScroll);
+/* leaving for an event page: remember exactly where we were and that we came from here */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href$=".html"]');if(a){saveScroll();try{sessionStorage.setItem('nav:from','invitation')}catch(x){}}},true);
 if(RETURNING)restoreScroll();else toTop();
 /* ---------- page 2: reveal straight away ---------- */
 var body=document.body;
