@@ -55,6 +55,12 @@ a{color:inherit}
 .btn-gold:hover{box-shadow:0 20px 40px -14px rgba(140,100,36,.85),inset 0 1px 0 rgba(255,255,255,.6)}
 .btn-line{color:var(--wine);background:transparent;border:1px solid var(--gold)}
 .btn-line:hover{background:var(--wine);color:var(--ivory);border-color:var(--wine)}
+.btn-invite{font-weight:700;color:#F3DFA2;background:linear-gradient(135deg,#7A1A30,#4A0C1A);border:1px solid #D9B46A;box-shadow:0 10px 24px -10px rgba(74,12,26,.8);animation:invPulse 2.4s ease-in-out infinite}
+.feature .btn-invite{color:#3E0C18;background:linear-gradient(135deg,#C99A4A,#F3DFA2 50%,#C99A4A);border-color:transparent}
+.inv-arrow{display:inline-block;margin-left:12px;vertical-align:middle;font-size:1.9rem;font-weight:700;line-height:1;color:#5C1023;animation:invNudge 1.4s ease-in-out infinite}
+.feature .inv-arrow{color:#F3DFA2}
+@keyframes invNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}
+@keyframes invPulse{0%,100%{box-shadow:0 10px 24px -10px rgba(74,12,26,.8),0 0 0 0 rgba(184,137,59,.5)}50%{box-shadow:0 10px 24px -10px rgba(74,12,26,.8),0 0 0 10px rgba(184,137,59,0)}}
 
 /* ---------- florals ---------- */
 .corner{position:absolute;pointer-events:none;width:clamp(150px,36vw,430px);aspect-ratio:1;z-index:3}
@@ -759,7 +765,7 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
                 <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span>12:00 PM onwards</span></li>
                 <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Mayflower Hotel, Panbazar, Guwahati</span></li>
               </ul>
-              <p style="margin-top:12px"><a href="mehendi.html" class="btn btn-line" style="min-height:42px;padding:0 20px">Mehendi Invitation</a></p>
+              <p style="margin-top:12px"><a href="mehendi.html" class="btn btn-gold btn-invite" style="min-height:42px;padding:0 20px">Mehendi Invitation</a><span class="inv-arrow" aria-hidden="true">←</span></p>
             </div>
             <div class="scene" data-scene="mehendi" aria-hidden="true"></div>
           </article>
@@ -773,7 +779,7 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
                 <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span>7:00 PM onwards</span></li>
                 <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Mayflower Hotel, Panbazar, Guwahati</span></li>
               </ul>
-              <p style="margin-top:12px"><a href="sangeet.html" class="btn btn-line" style="min-height:42px;padding:0 20px">Sangeet Invitation</a></p>
+              <p style="margin-top:12px"><a href="sangeet.html" class="btn btn-gold btn-invite" style="min-height:42px;padding:0 20px">Sangeet Invitation</a><span class="inv-arrow" aria-hidden="true">←</span></p>
             </div>
             <div class="scene" data-scene="sangeet" aria-hidden="true"></div>
           </article>
@@ -794,7 +800,7 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
                 <li><svg class="ic" aria-hidden="true"><use href="#i-home"/></svg><span>Venue: Home</span></li>
                 <li><svg class="ic" aria-hidden="true"><use href="#i-dine"/></svg><span>Lunch &amp; Dinner</span></li>
               </ul>
-              <p style="margin-top:12px"><a href="prewedding.html" class="btn btn-line" style="min-height:42px;padding:0 20px">Pre-Wedding Invitation</a></p>
+              <p style="margin-top:12px"><a href="prewedding.html" class="btn btn-gold btn-invite" style="min-height:42px;padding:0 20px">Pre-Wedding Invitation</a><span class="inv-arrow" aria-hidden="true">←</span></p>
             </div>
             <div class="scene" data-scene="pre" aria-hidden="true"></div>
           </article>
@@ -815,7 +821,7 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
                 <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span>10:00 AM onwards</span></li>
                 <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Opera De Agusta, Dhirenpara</span></li>
               </ul>
-              <p style="margin-top:12px"><a href="haldi.html" class="btn btn-line" style="min-height:42px;padding:0 20px">Haldi Invitation</a></p>
+              <p style="margin-top:12px"><a href="haldi.html" class="btn btn-gold btn-invite" style="min-height:42px;padding:0 20px">Haldi Invitation</a><span class="inv-arrow" aria-hidden="true">←</span></p>
             </div>
             <div class="scene" data-scene="haldi" aria-hidden="true"></div>
           </article>
@@ -828,7 +834,7 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
               <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span>6:00 PM onwards</span></li>
               <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><span>Opera De Agusta, Dhirenpara</span></li>
             </ul>
-            <p style="margin-top:14px;text-align:center"><a href="wedding.html" class="btn btn-line" style="min-height:42px;padding:0 22px">Wedding Invitation</a></p>
+            <p style="margin-top:14px;text-align:center"><a href="wedding.html" class="btn btn-gold btn-invite" style="min-height:42px;padding:0 22px">Wedding Invitation</a><span class="inv-arrow" aria-hidden="true">←</span></p>
           </article>
         </div>
       </div>
