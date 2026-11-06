@@ -541,9 +541,20 @@ body.mh .damask{opacity:.5}
 .xbtn:hover{transform:translateY(-2px);background:rgba(184,137,59,.14);box-shadow:0 8px 22px -10px var(--xa)}
 @media (max-width:430px){.xtl::before{left:70px}.xtl li{grid-template-columns:64px 1fr;gap:22px}.xtl li::after{left:66.5px}.xtl time{font-size:.7rem}}
 @media (prefers-reduced-motion:reduce){.xsec{opacity:1;transform:none;transition:none}.xfaq p{animation:none}}
+/* back button */
+.back-btn{position:fixed;top:max(14px,env(safe-area-inset-top));left:max(14px,env(safe-area-inset-left));z-index:150;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px 0 12px;border-radius:999px;
+  border:1px solid rgba(217,180,106,.85);background:rgba(30,4,12,.72);color:#F3DFA2;text-decoration:none;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:0 6px 18px -6px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.2,.75,.2,1),background .35s,color .35s}
+.back-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.2,.75,.2,1)}
+.back-btn:hover{background:#F3DFA2;color:#3A0813;transform:translateX(2px)}
+.back-btn:hover svg{transform:translateX(-3px)}
+.back-btn:focus-visible{outline:2px solid #F3DFA2;outline-offset:3px}
+@media (max-width:480px){.back-btn{height:34px;padding:0 13px 0 10px;font-size:.62rem}}
 </style>
 </head>
 <body class="mh">
+<a class="back-btn" href="invitation.html" aria-label="Back to the invitation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a>
+
 <script>document.documentElement.classList.add('js')</script>
 
 <!-- ================= SVG LIBRARY ================= -->

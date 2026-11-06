@@ -483,10 +483,21 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
 @keyframes gPulse{50%{transform:scale(1.06)}}
 #gate .g-t{font-family:'Great Vibes',cursive;font-size:clamp(2.2rem,8vw,3.2rem);color:#F3DFA2}
 #gate .g-s{font-family:'Cinzel',serif;letter-spacing:.28em;font-size:.72rem;text-transform:uppercase;color:#D9B46A}
+/* back button */
+.back-btn{position:fixed;top:max(14px,env(safe-area-inset-top));left:max(14px,env(safe-area-inset-left));z-index:150;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px 0 12px;border-radius:999px;
+  border:1px solid rgba(217,180,106,.85);background:rgba(30,4,12,.72);color:#F3DFA2;text-decoration:none;font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  box-shadow:0 6px 18px -6px rgba(0,0,0,.55);transition:transform .35s cubic-bezier(.2,.75,.2,1),background .35s,color .35s}
+.back-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.2,.75,.2,1)}
+.back-btn:hover{background:#F3DFA2;color:#3A0813;transform:translateX(2px)}
+.back-btn:hover svg{transform:translateX(-3px)}
+.back-btn:focus-visible{outline:2px solid #F3DFA2;outline-offset:3px}
+@media (max-width:480px){.back-btn{height:34px;padding:0 13px 0 10px;font-size:.62rem}}
 </style>
 <noscript><style>#intro{display:none}body.locked{overflow:auto;height:auto}body.locked main{transform:none;opacity:1}.mask>span{transform:none}#hero .corner,.scroll-cue,#hero .mono-letters{opacity:1;transform:none;filter:none}.draw{stroke-dashoffset:0}.fadein{opacity:1}</style></noscript>
 </head>
 <body>
+<a class="back-btn" href="index.html" aria-label="Back to the cover"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a>
+
 <script>document.documentElement.classList.add('js')</script>
 
 <!-- ================= SVG LIBRARY ================= -->
