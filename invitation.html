@@ -1324,21 +1324,42 @@ function petalRain(){if(reduced)return;var box=document.createElement('div');box
 
 var NAV=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0])||{},SK='scroll:invitation';
 /* returning = browser Back, or arriving through the event pages' Back button (?r=1), which also works in in-app browsers that hide the referrer */
-var RETURNING=NAV.type==='back_forward'||/[?&]r=1/.test(location.search);
+var MARK=false,LEGACY=false;
+try{MARK=sessionStorage.getItem('nav:from')==='invitation';sessionStorage.removeItem('nav:from')}catch(e){}
+try{LEGACY=!!(performance.navigation&&performance.navigation.type===2)}catch(e){}
+/* three independent signals, so it works on every iPhone/Android browser: back_forward, legacy back type, or "we left for an event page a moment ago" */
+var RETURNING=NAV.type==='back_forward'||LEGACY||MARK||/[?&]r=1/.test(location.search);
 if(/[?&]r=1/.test(location.search)&&history.replaceState){try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}}
-if('scrollRestoration' in history)history.scrollRestoration='manual';
+/* returning: let the browser restore natively as well (Safari), then we correct it; first visit: always start at the top */
+if('scrollRestoration' in history)history.scrollRestoration=RETURNING?'auto':'manual';
 function toTop(){var r=document.documentElement,p=r.style.scrollBehavior;r.style.scrollBehavior='auto';window.scrollTo(0,0);r.scrollTop=0;document.body.scrollTop=0;r.style.scrollBehavior=p}
 function readScroll(){var v=null;try{v=sessionStorage.getItem(SK)}catch(e){}if(v===null){try{v=localStorage.getItem(SK)}catch(e){}}return parseInt(v,10)||0}
-function restoreScroll(){var y=readScroll(),r=document.documentElement,p=r.style.scrollBehavior;r.style.scrollBehavior='auto';window.scrollTo(0,y);r.style.scrollBehavior=p}
+/* keep trying until the page is tall enough and we have really arrived (Safari lays the page out late and animates smooth-scrolls) */
+var restoreToken=0;
+function restoreScroll(){
+  var y=readScroll();if(!y)return;var r=document.documentElement,tok=++restoreToken,t0=Date.now(),stop=false;
+  r.style.scrollBehavior='auto';document.body.style.scrollBehavior='auto';
+  function cancel(){stop=true}
+  ['touchstart','wheel','keydown','mousedown'].forEach(function(n){addEventListener(n,cancel,{once:true,passive:true})});
+  (function step(){
+    if(stop||tok!==restoreToken)return finish();
+    window.scrollTo(0,y);
+    if(Math.abs(window.scrollY-y)<3&&Date.now()-t0>400)return finish();
+    if(Date.now()-t0>6000)return finish();
+    setTimeout(step,100);
+  })();
+  function finish(){setTimeout(function(){if(tok===restoreToken){r.style.scrollBehavior='';document.body.style.scrollBehavior=''}},300)}
+}
 var sT=0;function saveScroll(){var y=String(Math.round(window.scrollY));try{sessionStorage.setItem(SK,y)}catch(e){}try{localStorage.setItem(SK,y)}catch(e){}}
 addEventListener('scroll',function(){var n=Date.now();if(n-sT>400){sT=n;saveScroll()}},{passive:true});
 addEventListener('pagehide',saveScroll);
+addEventListener('pageshow',function(e){if(e.persisted)restoreScroll()});
 /* leaving for an event page: remember exactly where we were and that we came from here */
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href$=".html"]');if(a){saveScroll();try{sessionStorage.setItem('nav:from','invitation')}catch(x){}}},true);
 if(RETURNING)restoreScroll();else toTop();
 /* ---------- page 2: reveal straight away ---------- */
 var body=document.body;
-setTimeout(function(){if(RETURNING){restoreScroll();setTimeout(restoreScroll,500);setTimeout(restoreScroll,1500)}else toTop();body.classList.add('revealed');petalRain();startParticles();setTimeout(function(){var hs=document.getElementById('heroScene');if(hs)startScene(hs)},1000);},60);
+setTimeout(function(){if(RETURNING){restoreScroll()}else toTop();body.classList.add('revealed');petalRain();startParticles();setTimeout(function(){var hs=document.getElementById('heroScene');if(hs)startScene(hs)},1000);},60);
 
 /* ---------- gold particles ---------- */
 var cvs=document.getElementById('particles'),ctx2=cvs.getContext('2d'),parts=[],pw,ph,heroVisible=true,running=false;
