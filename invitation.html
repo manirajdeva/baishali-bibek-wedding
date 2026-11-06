@@ -1469,5 +1469,45 @@ if(reduced){/* show intro content immediately; doors still open on click */}
 </script>
 <script>(function(){var b=document.querySelector('.back-btn');if(!b)return;b.addEventListener('click',function(e){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(_){}
   if(same&&history.length>1){e.preventDefault();e.stopPropagation();history.back()}})})();</script>
+<script>
+/* floral garland along the Wedding arch */
+(function(){
+  var card=document.querySelector('.event.feature');if(!card)return;
+  var NS='http://www.w3.org/2000/svg',svg;
+  function flower(x,y,s,c1,c2,rot){
+    var g='<g transform="translate('+x+' '+y+') rotate('+rot+') scale('+s+')">';
+    for(var i=0;i<5;i++)g+='<ellipse cx="0" cy="-6" rx="3.6" ry="6" fill="'+c1+'" transform="rotate('+(i*72)+')"/>';
+    return g+'<circle r="3" fill="'+c2+'"/><circle r="1.2" fill="#FFF4D2"/></g>';
+  }
+  function leaf(x,y,a,s){
+    return '<path transform="translate('+x+' '+y+') rotate('+a+') scale('+s+')" d="M0 0C4-6 12-6 18 0 12 6 4 6 0 0Z" fill="#7C9A5C" opacity=".9"/>';
+  }
+  function build(){
+    var w=card.clientWidth,h=card.clientHeight;
+    var r=Math.min(parseFloat(getComputedStyle(card).borderTopLeftRadius)||320,w/2);
+    var R=r-26,cx=w/2,cy=r,len=Math.PI*R,n=Math.max(8,Math.round(len/30)),out='',i;
+    var cols=[['#F4A340','#C9701A'],['#F3DFA2','#D9B46A'],['#EE8CA0','#B8365A']];
+    for(i=0;i<=n;i++){
+      var t=Math.PI+Math.PI*i/n,x=cx+R*Math.cos(t),y=cy+R*Math.sin(t),deg=t*180/Math.PI;
+      out+=leaf(x,y,deg+90+(i%2?25:-25),.9);
+    }
+    for(i=0;i<=n;i++){
+      var t2=Math.PI+Math.PI*i/n,x2=cx+R*Math.cos(t2),y2=cy+R*Math.sin(t2),c=cols[i%3];
+      out+=flower(x2,y2,i%2?.85:1.15,c[0],c[1],i*23);
+    }
+    /* trailing sprigs down both sides */
+    [26,w-26].forEach(function(sx,k){
+      for(var j=1;j<=3;j++){
+        var yy=r+j*34;
+        out+=leaf(sx,yy,k?150:30,.7)+flower(sx,yy+4,.7,cols[(j+k)%3][0],cols[(j+k)%3][1],j*40);
+      }
+    });
+    if(!svg){svg=document.createElementNS(NS,'svg');svg.setAttribute('aria-hidden','true');
+      svg.style.cssText='position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden';card.appendChild(svg)}
+    svg.setAttribute('viewBox','0 0 '+w+' '+h);svg.innerHTML=out;
+  }
+  build();window.addEventListener('resize',build);window.addEventListener('load',build);
+})();
+</script>
 </body>
 </html>
