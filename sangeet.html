@@ -59,10 +59,12 @@ main{position:relative;z-index:2;min-height:100svh;display:flex;flex-direction:c
 .medal svg{width:62%;height:62%}
 
 .eyebrow{font-family:'Cinzel',serif;letter-spacing:.34em;text-transform:uppercase;font-size:.74rem;color:var(--gold)}
-h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3rem,12vw,4.8rem);line-height:1.1;margin:6px 0 2px;
+h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3rem,12vw,4.8rem);line-height:1.25;padding:.16em .1em .2em;margin:-.1em 0 -.12em;
   background:linear-gradient(100deg,#FFD98A 0%,#FFF6D8 30%,#FF9EC4 55%,#FFE29A 80%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
   animation:rise 1s var(--ease) forwards;animation-delay:var(--d)}
-.sub{font-style:italic;color:var(--ink-soft);font-size:1.15rem}
+.sub{display:flex;align-items:center;justify-content:center;gap:14px;font-family:'Cinzel',serif;font-style:normal;font-weight:500;text-transform:uppercase;letter-spacing:.3em;font-size:clamp(.95rem,3.8vw,1.3rem);color:var(--gold);margin:10px 0 4px}
+.sub::before,.sub::after{content:"";flex:0 1 clamp(24px,9vw,56px);height:1px;background:linear-gradient(90deg,transparent,var(--gold-dk))}
+.sub::after{transform:scaleX(-1)}
 .rule{width:min(240px,62vw);height:14px;margin:18px auto}
 .rule path{stroke:var(--gold);fill:none;stroke-width:1.2;stroke-dasharray:1;stroke-dashoffset:1}
 .rule circle{fill:var(--gold)}
@@ -236,12 +238,12 @@ h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3rem,12vw,4
     </div></div>
     <p class="eyebrow" style="--d:.9s">You are invited to the</p>
     <h1 id="t" style="--d:1.05s">Sangeet Night</h1>
-    <p class="sub" style="--d:1.2s">An evening of music, dance &amp; a thousand lights</p>
+    <p class="sub" style="--d:1.2s">The Musical Mehfil</p>
     <svg class="rule" viewBox="0 0 240 14" aria-hidden="true" style="--d:1.35s"><path pathLength="1" d="M4 7H100"/><path pathLength="1" d="M140 7H236"/><circle cx="120" cy="7" r="4"/><circle cx="108" cy="7" r="1.8"/><circle cx="132" cy="7" r="1.8"/></svg>
     <p class="when" style="--d:1.45s">Friday, 11 December 2026</p>
     <ul class="meta" style="--d:1.6s">
       <li><b>Time</b>7:00 PM onwards</li>
-      <li><b>Venue</b>Mayflower Hotel, Panbazar, Guwahati</li>
+      <li><b>Venue</b>Rooftop, Mayflower Hotel, Panbazar, Guwahati</li>
     </ul>
     <div class="vibe" style="--d:1.8s">
       <h3>Dress Code &middot; Glitter &amp; Glam</h3>
@@ -262,7 +264,7 @@ h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3rem,12vw,4
 <div class="xwrap" id="xwrap">
   <section class="xsec"><h2>Countdown</h2><div class="xcd" id="xcd"><div><b id="cdD">--</b><span>Days</span></div><div><b id="cdH">--</b><span>Hours</span></div><div><b id="cdM">--</b><span>Mins</span></div><div><b id="cdS">--</b><span>Secs</span></div></div></section>
   <section class="xsec"><h2>The Programme</h2><p class="xlead">An evening of music, dance and light – here is how the night will unfold.</p><ol class="xtl"><li><time>7:00 PM</time><div><b>Arrival &amp; Welcome</b><span>Welcome drinks, photos and finding your table.</span></div></li><li><time>7:45 PM</time><div><b>Opening Act</b><span>The night begins with a grand entry and the first performance.</span></div></li><li><time>8:15 PM</time><div><b>Family Performances</b><span>Both families take the stage with dances prepared just for you.</span></div></li><li><time>9:30 PM</time><div><b>Dinner</b><span>A relaxed break with food, music and conversation.</span></div></li><li><time>10:15 PM</time><div><b>Open Dance Floor</b><span>The DJ takes over – everyone dances until the lights go down.</span></div></li></ol></section>
-  <section class="xsec"><h2>The Venue</h2><p class="xaddr"><b>Mayflower Hotel</b><small>Panbazar, Guwahati</small><small>Friday, 11 December 2026</small></p>
+  <section class="xsec"><h2>The Venue</h2><p class="xaddr"><b>Rooftop, Mayflower Hotel</b><small>Panbazar, Guwahati</small><small>Friday, 11 December 2026</small></p>
     <div class="xbtns"><a class="xbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Mayflower%20Hotel%2C%20Panbazar%2C%20Guwahati">Open in Maps</a></div></section>
   <section class="xsec"><h2>Good to Know</h2><div class="xfaq"><details><summary>What should I wear?</summary><p>Glitter and glam – jewel tones, sequins and gold. Choose something comfortable you can dance in.</p></details><details><summary>Can I request a song?</summary><p>Of course – tell the DJ on the night and we will try to fit it in.</p></details><details><summary>Will it be cold in the evening?</summary><p>December evenings in Guwahati are cool. Carry a light shawl or jacket.</p></details><details><summary>Who do I contact?</summary><p>Message Monimala on WhatsApp for any questions about the evening.</p></details></div></section>
   <section class="xsec"><h2>Save the Date</h2><p class="xlead" style="margin-bottom:0">Never miss it – add it to your calendar.</p>
@@ -366,7 +368,7 @@ document.getElementById('dl').innerHTML=COUPLE;document.getElementById('dr').inn
   if(c){c.className='out';setTimeout(function(){c.remove()},800)}
   var n=document.createElement('span');n.appendChild(document.createTextNode(v));if(!first)n.className='in';el.appendChild(n);first=false}});el.innerHTML='<span>--</span>'});
 var iv=setInterval(tick,1000);tick();
-  var S='20261211T133000Z',E='20261211T173000Z',N='Sangeet Night · BB Wedding',L='Mayflower Hotel, Panbazar, Guwahati';
+  var S='20261211T133000Z',E='20261211T173000Z',N='Sangeet Night · BB Wedding',L='Rooftop, Mayflower Hotel, Panbazar, Guwahati';
   document.getElementById('xgcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(N)+'&dates='+S+'/'+E+'&location='+encodeURIComponent(L)+'&details='+encodeURIComponent('You are invited to the Sangeet Night. See the full invitation for details.');
   document.getElementById('xics').addEventListener('click',function(e){e.preventDefault();
     var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//BB Wedding//EN','BEGIN:VEVENT','UID:sangeet-bb-2026@invite','DTSTAMP:20260101T000000Z','DTSTART:'+S,'DTEND:'+E,'SUMMARY:'+N,'LOCATION:'+L,'END:VEVENT','END:VCALENDAR'].join('\r\n');
