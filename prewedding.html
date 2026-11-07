@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pre-Wedding Rituals · BB Wedding</title>
-<meta name="description" content="You are cordially invited to celebrate love, joy &amp; togetherness — the BB wedding celebrations, 11 – 14 December 2026.">
-<meta property="og:title" content="BB Wedding · 11 – 14 December 2026">
+<meta name="description" content="You are cordially invited to celebrate love, joy &amp; togetherness — the BB wedding celebrations, 11 – 18 December 2026.">
+<meta property="og:title" content="BB Wedding · 11 – 18 December 2026">
 <meta property="og:description" content="You are cordially invited to celebrate love, joy &amp; togetherness.">
 <meta name="theme-color" content="#4A0C1A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -524,10 +524,24 @@ body.pw .damask{opacity:.4}
 .xcd div{padding:14px 4px;border:1px solid var(--bd);border-radius:12px}
 .xcd b{display:block;font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.5rem,6vw,2.2rem);line-height:1.1;color:var(--sf);font-variant-numeric:tabular-nums}
 .xcd span{font-family:'Cinzel',serif;letter-spacing:.16em;font-size:.62rem;text-transform:uppercase;color:var(--soft)}
+.xcd b{position:relative;overflow:hidden;height:1.1em}
+.xcd b>span{position:absolute;inset:0;display:block;font:inherit;letter-spacing:inherit;text-transform:none;color:inherit}
+.xcd b>.in{animation:xIn .75s cubic-bezier(.22,1,.36,1) both}
+.xcd b>.out{animation:xOut .75s cubic-bezier(.22,1,.36,1) both}
+@keyframes xIn{from{transform:translateY(70%) scale(.9);opacity:0;filter:blur(4px)}to{transform:none;opacity:1;filter:blur(0)}}
+@keyframes xOut{from{transform:none;opacity:1;filter:blur(0)}to{transform:translateY(-70%) scale(.9);opacity:0;filter:blur(4px)}}
+@media (prefers-reduced-motion:reduce){.xcd b>.in,.xcd b>.out{animation:none}.xcd b>.out{display:none}}
 .xdone{text-align:center;font-family:'Great Vibes',cursive;font-size:2rem;color:var(--vm)}
 .xstep{list-style:none;display:grid;gap:16px}
 .xstep li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
 .xstep em{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:'Playfair Display',serif;color:var(--vm);border:1px solid var(--bd);background:radial-gradient(circle at 50% 35%,#FFFDF8,#FBE9C3)}
+.xstep em{position:relative;transition:transform .45s,box-shadow .45s,border-color .45s}
+.xstep em .n,.xstep em .xi{grid-area:1/1;transition:opacity .45s ease,transform .5s cubic-bezier(.3,1.4,.5,1)}
+.xstep em .n{font-style:normal}
+.xstep em .xi{width:24px;height:24px;opacity:0;transform:scale(.4) rotate(-90deg)}
+.xstep li:hover em,.xstep li:focus-within em,.xstep li:active em{transform:translateY(-2px);box-shadow:0 6px 16px rgba(184,137,59,.28);border-color:#B8893B}
+.xstep li:hover em .n,.xstep li:focus-within em .n,.xstep li:active em .n{opacity:0;transform:scale(.4) rotate(90deg)}
+.xstep li:hover em .xi,.xstep li:focus-within em .xi,.xstep li:active em .xi{opacity:1;transform:none}
 .xstep b{display:block;font-family:'Playfair Display',serif;font-weight:500;font-size:1.12rem}
 .xstep span{color:var(--soft);font-size:1.02rem;line-height:1.4;display:block}
 .xfaq details{border-top:1px solid var(--bd);padding:2px 0}.xfaq details:first-child{border-top:0}
@@ -792,10 +806,10 @@ body.pw .damask{opacity:.4}
     <section class="xsec"><h2>Countdown</h2><div class="xcd" id="xcd"><div><b id="cdD">--</b><span>Days</span></div><div><b id="cdH">--</b><span>Hours</span></div><div><b id="cdM">--</b><span>Mins</span></div><div><b id="cdS">--</b><span>Secs</span></div></div></section>
     <section class="xsec"><h2>The Day at Home</h2><p class="xlead">A gentle, family-centred day of tradition.</p>
       <ol class="xstep">
-        <li><em>1</em><div><b>Rituals &amp; Blessings</b><span>Traditional pre-wedding rituals performed with the family.</span></div></li>
-        <li><em>2</em><div><b>Lunch</b><span>A festive lunch shared with relatives and close friends.</span></div></li>
-        <li><em>3</em><div><b>Evening Gathering</b><span>Music, conversation and time together as the families unite.</span></div></li>
-        <li><em>4</em><div><b>Dinner</b><span>The day closes with dinner at home.</span></div></li>
+        <li><em><i class="n">1</i><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2 3 4 5 4 8a4 4 0 0 1-8 0c0-3 2-5 4-8z"/><path d="M5 20h14M8 20v-2h8v2"/></svg></em><div><b>Rituals &amp; Blessings</b><span>Traditional pre-wedding rituals performed with the family.</span></div></li>
+        <li><em><i class="n">2</i><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3v8M8 3v8M5 7h3M6.5 11v10"/><path d="M17 3c-2 2-2.5 5-2 8h2.5v10"/></svg></em><div><b>Lunch</b><span>A festive lunch shared with relatives and close friends.</span></div></li>
+        <li><em><i class="n">3</i><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></em><div><b>Evening Gathering</b><span>Music, conversation and time together as the families unite.</span></div></li>
+        <li><em><i class="n">4</i><svg class="xi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 15h16a8 8 0 0 1-16 0z"/><path d="M12 7v2M8 9l1 1.5M16 9l-1 1.5M9 20h6"/></svg></em><div><b>Dinner</b><span>The day closes with dinner at home.</span></div></li>
       </ol></section>
     <section class="xsec"><h2>Good to Know</h2><div class="xfaq">
       <details><summary>Where is it held?</summary><p>At home, with the family. Message Monimala on WhatsApp for the address and directions.</p></details>
@@ -902,7 +916,10 @@ document.querySelectorAll('.mono-svg').forEach(function(el){el.innerHTML=monoSVG
   function pad(n){return n<10?'0'+n:''+n}
   function tick(){var d=T-Date.now();if(d<=0){document.getElementById('xcd').outerHTML='<p class="xdone">The rituals have begun!</p>';clearInterval(iv);return}
     var s=Math.floor(d/1000);ids[0].textContent=Math.floor(s/86400);ids[1].textContent=pad(Math.floor(s%86400/3600));ids[2].textContent=pad(Math.floor(s%3600/60));ids[3].textContent=pad(s%60)}
-  var iv=setInterval(tick,1000);tick();
+  ids.forEach(function(el){var first=true;Object.defineProperty(el,'textContent',{configurable:true,get:function(){var c=el.querySelector('span:not(.out)');return c?c.firstChild.nodeValue:''},set:function(v){v=String(v);var c=el.querySelector('span:not(.out)');if(c&&c.firstChild.nodeValue===v)return;
+  if(c){c.className='out';setTimeout(function(){c.remove()},800)}
+  var n=document.createElement('span');n.appendChild(document.createTextNode(v));if(!first)n.className='in';el.appendChild(n);first=false}});el.innerHTML='<span>--</span>'});
+var iv=setInterval(tick,1000);tick();
   /* calendar (all-day, 12 Dec 2026) */
   var N='Pre-Wedding Rituals · BB Wedding';
   document.getElementById('xgcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(N)+'&dates=20261212/20261213&location='+encodeURIComponent('At Home')+'&details='+encodeURIComponent('Pre-Wedding Rituals at home. Lunch and dinner. See the full invitation for details.');
