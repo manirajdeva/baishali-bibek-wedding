@@ -953,7 +953,7 @@ var iv=setInterval(tick,1000);tick();
 
 /* ---------- background music: always on (tap-to-start screen if the browser blocks autoplay) ---------- */
 var mBtn=document.getElementById('musicBtn'),userPaused=false,gate=null;
-var au=new Audio();au.loop=true;au.preload='auto';au.src='audio/invitation-music.mp3';
+var au=new Audio();au.loop=true;au.preload='auto';au.src='audio/mangalacharan-music.mp3';
 function ui(on){mBtn.setAttribute('aria-pressed',on?'true':'false');mBtn.setAttribute('aria-label',on?'Pause background music':'Play background music')}
 function openGate(){
   if(gate||userPaused)return;
