@@ -343,6 +343,9 @@ footer{position:relative;text-align:center;padding:clamp(90px,12vw,130px) 20px c
 footer .corner{width:clamp(130px,26vw,300px)}
 footer .inner{position:relative;z-index:4}
 footer .royal{font-size:clamp(.72rem,2.2vw,.95rem);color:var(--ink-soft);letter-spacing:.24em;margin-top:10px;line-height:1.8}
+footer .credit{margin-top:34px;font-family:'Cormorant Garamond',serif;font-size:.82rem;letter-spacing:.14em;color:rgba(232,214,193,.7)}
+footer .credit a{color:#D9B46A;text-decoration:none;border-bottom:1px solid rgba(217,180,106,.4);padding-bottom:1px;transition:color .3s,border-color .3s}
+footer .credit a:hover,footer .credit a:focus-visible{color:#F3DFA2;border-color:#F3DFA2}
 .foot-mono{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:3.4rem;color:var(--wine);position:relative;width:90px;height:90px;margin:18px auto 6px;display:grid;place-items:center}
 .foot-mono span{grid-area:1/1}.foot-mono span:first-child{transform:translate(-.17em,-.09em)}.foot-mono span:last-child{transform:translate(.17em,.1em)}
 .foot-mono::before{content:"";position:absolute;inset:0;border:1px solid var(--gold);border-radius:50%}
@@ -514,6 +517,21 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
 .to-top:focus-visible{outline:2px solid #F3DFA2;outline-offset:3px}
 </style>
 <noscript><style>#intro{display:none}body.locked{overflow:auto;height:auto}body.locked main{transform:none;opacity:1}.mask>span{transform:none}#hero .corner,.scroll-cue,#hero .mono-letters{opacity:1;transform:none;filter:none}.draw{stroke-dashoffset:0}.fadein{opacity:1}</style></noscript>
+<style id="pgfx">
+/* smooth page-to-page transitions (web + mobile) */
+@view-transition{navigation:auto}
+::view-transition-group(root){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+::view-transition-old(root){animation:.4s cubic-bezier(.4,0,.2,1) both pgOut}
+::view-transition-new(root){animation:.6s cubic-bezier(.22,1,.36,1) both pgIn}
+@keyframes pgOut{to{opacity:0;transform:scale(.985)}}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}}
+@supports not (view-transition-name:none){body{animation:pgFade .6s cubic-bezier(.22,1,.36,1) both}@keyframes pgFade{from{opacity:0}}}
+/* touch polish */
+html{-webkit-tap-highlight-color:transparent}
+a,button,summary,.btn,.xbtn{touch-action:manipulation}
+@media (hover:none){.xstep li:hover em{transform:none;box-shadow:none}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(root),::view-transition-old(root),::view-transition-new(root){animation:none!important}body{animation:none!important}}
+</style>
 </head>
 <body>
 
@@ -1034,6 +1052,7 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
       <svg class="divider" viewBox="0 0 240 24" aria-hidden="true"><use href="#divider"/></svg>
       <div class="foot-mono" aria-label="BB"><span>B</span><span>B</span></div>
       <p class="royal gold-text" style="font-weight:600">9 – 18 December 2026</p>
+      <p class="credit">Designed by <a href="https://www.instagram.com/maniraj_deva/" target="_blank" rel="noopener">@Deva</a></p>
     </div>
   </footer>
 </main>

@@ -475,6 +475,21 @@ body{background:radial-gradient(ellipse 120% 70% at 50% 0%,#86233A 0%,#5C1023 45
 .intro-tip svg{width:22px;height:22px;flex:none;color:#E8C873}
 </style>
 <noscript><style>#intro{display:none}body.locked{overflow:auto;height:auto}body.locked main{transform:none;opacity:1}.mask>span{transform:none}#hero .corner,.scroll-cue,#hero .mono-letters{opacity:1;transform:none;filter:none}.draw{stroke-dashoffset:0}.fadein{opacity:1}</style></noscript>
+<style id="pgfx">
+/* smooth page-to-page transitions (web + mobile) */
+@view-transition{navigation:auto}
+::view-transition-group(root){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+::view-transition-old(root){animation:.4s cubic-bezier(.4,0,.2,1) both pgOut}
+::view-transition-new(root){animation:.6s cubic-bezier(.22,1,.36,1) both pgIn}
+@keyframes pgOut{to{opacity:0;transform:scale(.985)}}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}}
+@supports not (view-transition-name:none){body{animation:pgFade .6s cubic-bezier(.22,1,.36,1) both}@keyframes pgFade{from{opacity:0}}}
+/* touch polish */
+html{-webkit-tap-highlight-color:transparent}
+a,button,summary,.btn,.xbtn{touch-action:manipulation}
+@media (hover:none){.xstep li:hover em{transform:none;box-shadow:none}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(root),::view-transition-old(root),::view-transition-new(root){animation:none!important}body{animation:none!important}}
+</style>
 </head>
 <body class="locked">
 <script>document.documentElement.classList.add('js')</script>

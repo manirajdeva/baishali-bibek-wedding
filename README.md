@@ -9,19 +9,42 @@ A static, mobile-first wedding invitation site (plain HTML/CSS/JS, no build step
 | Page | File | Purpose |
 |---|---|---|
 | Cover | `index.html` | Landing / cover page |
-| Main invitation | `invitation.html` | Intro animation, countdown, event timeline, accommodation, venue, RSVP |
-| Mehendi | `mehendi.html` | Mehendi ceremony invitation (Fri 11 Dec 2026, Mayflower Hotel, Panbazar, Guwahati) |
-| Sangeet | `sangeet.html` | Sangeet invitation |
-| Pre-Wedding | `prewedding.html` | Pre-wedding invitation |
-| Haldi | `haldi.html` | Haldi invitation |
-| Wedding | `wedding.html` | Wedding ceremony invitation (Day Three, Sunday, 6:00 PM, Opera De Agusta, Dhirenpara) |
+| Main invitation | `invitation.html` | Intro animation, countdown, six-day timeline, quotes, accommodation, venues, RSVP |
+| Mangalacharan | `mangalacharan.html` | Blessings and Beginnings (Wed 9 Dec 2026, Infinity Hall, Mayflower Hotel) |
+| Mehendi | `mehendi.html` | The Henna Hangout (Fri 11 Dec 2026, Rooftop, Mayflower Hotel, Panbazar, Guwahati) |
+| Sangeet | `sangeet.html` | The Musical Mehfil (Fri 11 Dec 2026, Rooftop, Mayflower Hotel) |
+| Pre-Wedding | `prewedding.html` | Pre-wedding rituals at home (Sat 12 Dec 2026) |
+| Haldi | `haldi.html` | Shades of Sunshine (Sun 13 Dec 2026, Opera De Augusta, Dhirenpara) |
+| Wedding | `wedding.html` | Wedding ceremony (Sun 13 Dec 2026, 6:00 PM, Opera De Augusta) |
+| Vidai | `vidai.html` | Vidai ceremony (Mon 14 Dec 2026, evening, from home) |
+| Reception | `reception.html` | The Royal Rendezvous (Fri 18 Dec 2026, 7:00 PM onwards, Regal Gardeni) |
 
-Every page has a Back button that returns to the previous page and restores the exact scroll position and music state.
+Event pages have a Back button that returns to the previous page and restores the exact scroll position. Each event page starts its music fresh when opened.
 
 ## Music
 
 Audio lives in `audio/`. Each page plays its own looping track:
-`invitation-music.mp3`, `mehendi-music-from52.mp3`, `sangeet-music-from17.mp3`, `prewedding-music.mp3`, `haldi-music-from19.mp3`, `wedding-music-from1m30.mp3`.
+`invitation-music.mp3` (also Mangalacharan for now), `mehendi-music-from52.mp3`, `sangeet-music-from17.mp3`, `prewedding-music.mp3`, `haldi-music.mp3`, `wedding-music-from1m30.mp3`, `vidai-music.mp3`, `reception-music.mp3`.
+
+## Release v1.1.0
+
+Adds the full 9 – 18 December schedule, three new pages and a round of polish.
+
+### Added
+- **Mangalacharan, Vidai and Reception pages** with countdowns, step-by-step programme, venue, FAQ and calendar (Google / .ics) links, linked from new buttons on the invitation timeline.
+- **Six-day timeline**: new Day One (9 Dec Mangalacharan) and Day Six (18 Dec Reception) with a dining-table Reception scene and new medal artwork.
+- **Venue updates**: Rooftop at Mayflower Hotel (Mehendi, Sangeet), Infinity Hall (Mangalacharan), Opera De Augusta (Haldi, Wedding) and Regal Gardeni (Reception), including a third "Where We Gather" venue card.
+- **Taglines** in a new gold small-caps style on the Mehendi, Sangeet, Haldi and Reception pages.
+- **Two wedding quotes** on the invitation page and a **back-to-top** button.
+- **Animated details**: rolling countdown digits, number-to-icon hover on the programme steps, animated Sangeet and Mehendi timelines.
+- **Smooth page-to-page transitions** on web and mobile (with a fade fallback and reduced-motion support).
+- **New music** for Haldi, Vidai and Reception.
+- Credit line "Designed by @Deva" in the invitation footer.
+
+### Changed
+- Date range is now 9 – 18 December 2026 everywhere; every page has its own tab title.
+- Event pages always start their music from the beginning.
+- Removed the Back button from the main invitation page.
 
 ## Release v1.0.0
 

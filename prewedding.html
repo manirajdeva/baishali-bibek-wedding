@@ -586,6 +586,21 @@ body.pw .damask{opacity:.4}
 .back-btn:focus-visible{outline:2px solid #F3DFA2;outline-offset:3px}
 @media (max-width:480px){.back-btn{height:34px;padding:0 13px 0 10px;font-size:.62rem}}
 </style>
+<style id="pgfx">
+/* smooth page-to-page transitions (web + mobile) */
+@view-transition{navigation:auto}
+::view-transition-group(root){animation-duration:.55s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+::view-transition-old(root){animation:.4s cubic-bezier(.4,0,.2,1) both pgOut}
+::view-transition-new(root){animation:.6s cubic-bezier(.22,1,.36,1) both pgIn}
+@keyframes pgOut{to{opacity:0;transform:scale(.985)}}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}}
+@supports not (view-transition-name:none){body{animation:pgFade .6s cubic-bezier(.22,1,.36,1) both}@keyframes pgFade{from{opacity:0}}}
+/* touch polish */
+html{-webkit-tap-highlight-color:transparent}
+a,button,summary,.btn,.xbtn{touch-action:manipulation}
+@media (hover:none){.xstep li:hover em{transform:none;box-shadow:none}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(root),::view-transition-old(root),::view-transition-new(root){animation:none!important}body{animation:none!important}}
+</style>
 </head>
 <body class="pw">
 <a class="back-btn" href="invitation.html?r=1" aria-label="Back to the invitation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Back</a>
@@ -951,15 +966,6 @@ function go(){if(userPaused)return;var pr=au.play();
 mBtn.addEventListener('click',function(e){e.stopPropagation();if(au.paused){userPaused=false;go()}else{userPaused=true;au.pause();ui(false)}});
 evs.forEach(function(n){addEventListener(n,kick,{passive:true})});
 document.addEventListener('visibilitychange',function(){if(!document.hidden)kick();else if(!au.paused){au.pause();ui(false)}});
-/* resume this page's music from where it stopped (kept for the tab session) */
-(function(){var K='music:'+location.pathname,saved=0;try{saved=parseFloat(sessionStorage.getItem(K))||0}catch(e){}
-  function seekSaved(){if(saved>1&&au.duration&&saved<au.duration-2){try{au.currentTime=saved}catch(e){}}}
-  if(au.readyState>=1)seekSaved();else au.addEventListener('loadedmetadata',seekSaved,{once:true});
-  var last=0;function save(){try{if(au.currentTime>0)sessionStorage.setItem(K,String(au.currentTime))}catch(e){}}
-  au.addEventListener('timeupdate',function(){var n=Date.now();if(n-last>1000){last=n;save()}});
-  addEventListener('pagehide',save);
-  document.addEventListener('visibilitychange',function(){if(document.hidden)save()});
-})();
 go();
 })();
 </script>
