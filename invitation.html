@@ -315,6 +315,8 @@ html.js .event:not(.in) .medal{transform:scale(.6) rotate(-14deg)}
 .contact .name{font-family:'Great Vibes',cursive;font-size:clamp(2.2rem,6vw,3rem);color:var(--ivory);line-height:1.1}
 .contact a{display:inline-block;margin-top:4px;font-family:'Cinzel',serif;letter-spacing:.24em;font-size:clamp(1rem,3vw,1.25rem);color:var(--gold-pale);text-decoration:none;border-bottom:1px solid rgba(243,223,162,.35);padding-bottom:3px}
 .contact a:hover{border-color:var(--gold-pale)}
+.contact-list{display:flex;flex-wrap:wrap;justify-content:center;gap:22px 44px;margin-top:6px}
+.contact-item .name{margin:0}
 .actions{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
 #rsvp .btn-line{color:var(--gold-pale);border-color:rgba(243,223,162,.7)}
 #rsvp .btn-line:hover{background:var(--gold-pale);color:var(--wine-dk)}
@@ -1030,8 +1032,20 @@ a,button,summary,.btn,.xbtn{touch-action:manipulation}
       </header>
       <div class="contact reveal" style="--d:.15s">
         <p class="eyebrow">Kindly respond to</p>
-        <p class="name">Monimala</p>
-        <a href="tel:+919954233539" aria-label="Call Monimala on 9954233539">9954233539</a>
+        <div class="contact-list">
+          <div class="contact-item">
+            <p class="name">Monimala</p>
+            <a href="tel:+919954233539" aria-label="Call Monimala on 9954233539">9954233539</a>
+          </div>
+          <div class="contact-item">
+            <p class="name">Baishali</p>
+            <a href="tel:+917896953511" aria-label="Call Baishali on 7896953511">7896953511</a>
+          </div>
+          <div class="contact-item">
+            <p class="name">Bibek</p>
+            <a href="tel:+918011923057" aria-label="Call Bibek on 8011923057">8011923057</a>
+          </div>
+        </div>
       </div>
       <div class="actions reveal" style="--d:.3s">
         <button class="btn btn-gold" type="button" id="confirmBtn">
