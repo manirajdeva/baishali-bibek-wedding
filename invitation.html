@@ -1034,10 +1034,6 @@ a,button,summary,.btn,.xbtn{touch-action:manipulation}
         <p class="eyebrow">Kindly respond to</p>
         <div class="contact-list">
           <div class="contact-item">
-            <p class="name">Monimala</p>
-            <a href="tel:+919954233539" aria-label="Call Monimala on 9954233539">9954233539</a>
-          </div>
-          <div class="contact-item">
             <p class="name">Baishali</p>
             <a href="tel:+917896953511" aria-label="Call Baishali on 7896953511">7896953511</a>
           </div>
@@ -1050,7 +1046,7 @@ a,button,summary,.btn,.xbtn{touch-action:manipulation}
       <div class="actions reveal" style="--d:.3s">
         <button class="btn btn-gold" type="button" id="confirmBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-heart"/></svg>Confirm Your Presence</button>
-        <a class="btn btn-line" id="waBtn" target="_blank" rel="noopener" href="https://wa.me/919954233539">
+        <a class="btn btn-line" id="waBtn" target="_blank" rel="noopener" href="https://wa.me/917896953511">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-wa"/></svg>Contact on WhatsApp</a>
       </div>
     </div>
@@ -1081,9 +1077,9 @@ a,button,summary,.btn,.xbtn{touch-action:manipulation}
       <div class="field"><label for="gName">Your name</label><input id="gName" name="name" type="text" autocomplete="name" placeholder="Your full name" required></div>
       <div class="field"><label for="gCount">Number of guests</label>
         <select id="gCount" name="count"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
-      <a class="btn btn-gold" id="sendWa" target="_blank" rel="noopener" href="https://wa.me/919954233539" aria-disabled="true">
+      <a class="btn btn-gold" id="sendWa" target="_blank" rel="noopener" href="https://wa.me/917896953511" aria-disabled="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-wa"/></svg>Send via WhatsApp</a>
-      <p class="fine">This opens WhatsApp with your confirmation ready to send to Monimala. Nothing is stored on this page.</p>
+      <p class="fine">This opens WhatsApp with your confirmation ready to send to the family. Nothing is stored on this page.</p>
     </form>
   </div>
 </div>
@@ -1556,8 +1552,8 @@ function updateCD(){var diff=target-Date.now();
 updateCD();cdTimer=setInterval(updateCD,1000);
 
 /* ---------- WhatsApp & RSVP ---------- */
-var WA='https://wa.me/919954233539?text=';
-var baseMsg='Hello Monimala, I would like to confirm my presence for the BB wedding celebration from 9–18 December 2026.';
+var WA='https://wa.me/917896953511?text=';
+var baseMsg='Hello, I would like to confirm my presence for the BB wedding celebration from 9–18 December 2026.';
 document.getElementById('waBtn').href=WA+encodeURIComponent(baseMsg);
 var modal=document.getElementById('modal'),nameI=document.getElementById('gName'),countI=document.getElementById('gCount'),send=document.getElementById('sendWa'),lastFocus;
 function buildMsg(){var n=nameI.value.trim(),c=parseInt(countI.value,10);
